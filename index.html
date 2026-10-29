@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio of Oriel Dwane Bansil." />
+  <title>Oriel Dwane Bansil | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-web">🕸️</div>
+    <h1>OB</h1>
+    <p>swinging into the portfolio...</p>
+  </div>
+
+  <!-- Web background decoration -->
+  <div class="bg-dots" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#home" class="logo">OB<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+    <nav id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#education">Educational Attainment</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#family">Family</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <p class="hello">Hello, I'm</p>
+        <h2 class="name">Oriel Dwane <span>Bansil</span></h2>
+        <p class="role">I'm a <span id="typed" class="typed"></span><span class="cursor">|</span></p>
+        <p class="intro">
+          Welcome to my portfolio get to know me more!
+        </p>
+        <div class="socials">
+          <a href="https://www.facebook.com/oriel.dwane.bansil.2025" target="_blank" rel="noopener noreferrer" class="btn">Facebook</a>
+          <a href="https://www.instagram.com/oriel_dwane/?hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Instagram</a>
+        </div>
+      </div>
+
+      <!-- Flippable ID badge -->
+      <div class="badge-zone" id="badgeZone">
+        <div class="swing">
+          <div class="clip"></div>
+          <div class="lanyard"></div>
+          <div class="badge" id="badge" role="button" tabindex="0" aria-pressed="false" aria-label="ID badge. Press to flip it and reveal the info.">
+            <div class="badge-hole"></div>
+            <div class="badge-inner" id="badgeInner">
+
+              <!-- FRONT: photo -->
+              <div class="b-face b-front">
+                <!-- Your photo: images/oriel.jpg -->
+                <img src="oriel.jpg" alt="Portrait of Oriel Dwane Bansil" draggable="false" />
+                <span class="badge-tag">OB</span>
+                <span class="flip-hint">tap to flip &#10022;</span>
+              </div>
+
+              <!-- BACK: info with web designs -->
+              <div class="b-face b-back">
+                <svg class="web web-tl" viewBox="0 0 120 120" aria-hidden="true">
+                  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                    <path d="M0 0L120 0M0 0L112 42M0 0L85 85M0 0L42 112M0 0L0 120"/>
+                    <path d="M28 0Q20 20 0 28M56 0Q42 42 0 56M84 0Q64 64 0 84M112 0Q86 86 0 112"/>
+                  </g>
+                </svg>
+                <svg class="web web-br" viewBox="0 0 120 120" aria-hidden="true">
+                  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                    <path d="M0 0L120 0M0 0L112 42M0 0L85 85M0 0L42 112M0 0L0 120"/>
+                    <path d="M28 0Q20 20 0 28M56 0Q42 42 0 56M84 0Q64 64 0 84M112 0Q86 86 0 112"/>
+                  </g>
+                </svg>
+                <div class="back-content">
+                  <span class="badge-tag">OB</span>
+                  <h3>Oriel Dwane Bansil</h3>
+                  <p class="back-role">Student &amp; Aspiring Developer</p>
+                  <div class="badge-chips">
+                    <em>curious</em><em>creative</em><em>dedicated</em>
+                  </div>
+                  <small>tap to flip back &#10022;</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <small class="drag-hint">tap the ID to flip it &#10022;</small>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO •</span>
+        <span>OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO •</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <p class="eyebrow">01 / About</p>
+      <h2 class="title">A little about me</h2>
+
+      <div class="grid-2">
+        <div class="panel reveal">
+          <h3>Who I am</h3>
+          <p>
+            Write a short introduction here. Share where you're from, what you're
+            studying, and what motivates you. Replace this placeholder text with your own story.
+          </p>
+          <p>
+            Add a second paragraph about your goals, the things you're learning,
+            or what you hope to build in the future.
+          </p>
+        </div>
+
+        <div class="panel reveal">
+          <h3>What I work with</h3>
+          <div class="skills" id="skills">
+            <button data-note="Where my love for object-oriented programming began.">Java</button>
+            <button data-note="The skeleton of every page I build.">HTML</button>
+            <button data-note="Where I get to make everything look good (and pink).">CSS</button>
+            <button data-note="Makes my pages move, click and react.">JavaScript</button>
+            <button data-note="My daily workspace for writing code.">VS Code</button>
+          </div>
+          <p class="skill-note" id="skillNote">Tap a skill to see a note about it.</p>
+
+          <h3 class="mt">Quick facts <small>(click to flip through)</small></h3>
+          <button class="fact" id="fact">
+            <span id="factText">Click me for a random fact.</span>
+            <i id="factCount">1 / 4</i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <p class="eyebrow">02 / Education</p>
+      <h2 class="title">Educational attainment</h2>
+
+      <div class="timeline">
+        <article class="t-item reveal">
+          <span class="t-year">20XX – Present</span>
+          <h3>College / University</h3>
+          <p>Your school name · Your course</p>
+        </article>
+        <article class="t-item reveal">
+          <span class="t-year">20XX – 20XX</span>
+          <h3>Senior High School</h3>
+          <p>Your school name · Your strand</p>
+        </article>
+        <article class="t-item reveal">
+          <span class="t-year">20XX – 20XX</span>
+          <h3>Junior High School</h3>
+          <p>Your school name</p>
+        </article>
+        <article class="t-item reveal">
+          <span class="t-year">20XX – 20XX</span>
+          <h3>Elementary</h3>
+          <p>Your school name</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section class="section" id="certificates">
+      <p class="eyebrow">03 / Certificates</p>
+      <h2 class="title">Certificates &amp; recognitions</h2>
+
+      <div class="filters" id="filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="tech">Tech</button>
+        <button data-filter="academic">Academic</button>
+      </div>
+
+      <div class="cards" id="cards">
+        <article class="card reveal" data-cat="tech">
+          <span class="star">★</span>
+          <h3>Certificate Title 1</h3>
+          <p>Issuer · 20XX</p>
+        </article>
+        <article class="card reveal" data-cat="tech">
+          <span class="star">★</span>
+          <h3>Certificate Title 2</h3>
+          <p>Issuer · 20XX</p>
+        </article>
+        <article class="card reveal" data-cat="academic">
+          <span class="star">★</span>
+          <h3>Academic Award</h3>
+          <p>School · 20XX</p>
+        </article>
+        <article class="card reveal" data-cat="academic">
+          <span class="star">★</span>
+          <h3>Seminar Participation</h3>
+          <p>Organizer · 20XX</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAMILY -->
+    <section class="section" id="family">
+      <p class="eyebrow">04 / Family</p>
+      <h2 class="title">The people behind me</h2>
+
+      <div class="cards">
+        <article class="card family reveal">
+          <div class="avatar">M</div>
+          <h3>Mother</h3>
+          <strong>Name here</strong>
+          <p>Add a short line about her.</p>
+        </article>
+        <article class="card family reveal">
+          <div class="avatar">F</div>
+          <h3>Father</h3>
+          <strong>Name here</strong>
+          <p>Add a short line about him.</p>
+        </article>
+        <article class="card family reveal">
+          <div class="avatar">S</div>
+          <h3>Sibling</h3>
+          <strong>Name here</strong>
+          <p>Add a short line here.</p>
+        </article>
+        <article class="card family reveal">
+          <div class="avatar">S</div>
+          <h3>Sibling</h3>
+          <strong>Name here</strong>
+          <p>Add a short line here.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Oriel Dwane Bansil</p>
+    <a href="#about" id="nextLink">Next: About Me →</a>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+  <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
