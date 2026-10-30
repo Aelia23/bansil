@@ -331,3 +331,125 @@ body, .panel, .card, .t-item, .nav, .b-face, .skills button, .filters button, .f
 :root[data-theme="dark"] .name span { color: var(--pink-deep); text-shadow: 4px 4px 0 #000; }
 :root[data-theme="dark"] .panel, :root[data-theme="dark"] .card, :root[data-theme="dark"] .t-item { border-color: var(--pink); }
 :root[data-theme="dark"] .btn { border-color: #000; }
+
+
+/* =====================================================
+   PAGE-BY-PAGE LAYOUT (no scrolling, Back / Next buttons)
+   ===================================================== */
+:root { --nav-h: 66px; --marq-h: 42px; --pager-h: 76px; }
+html, body { height: 100%; overflow: hidden; }
+
+.nav { height: var(--nav-h); padding-top: 0; padding-bottom: 0; }
+
+.marquee {
+  position: fixed; top: var(--nav-h); left: 0; right: 0; height: var(--marq-h); z-index: 40;
+  border-block: 3px solid var(--pink); display: flex; align-items: center;
+}
+.marquee-track span { font-size: 1.3rem; padding: 0 20px; }
+
+main {
+  position: fixed; left: 0; right: 0; overflow: hidden;
+  top: calc(var(--nav-h) + var(--marq-h)); bottom: var(--pager-h);
+}
+
+.page {
+  position: absolute; inset: 0; overflow-x: hidden; overflow-y: auto;
+  opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(60px);
+  transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s;
+}
+.page.before { transform: translateX(-60px); }
+.page.active {
+  opacity: 1; visibility: visible; pointer-events: auto; transform: none;
+  transition: opacity .45s ease, transform .45s ease, visibility 0s;
+}
+
+/* home page */
+.hero.page { display: grid; align-items: center; align-items: safe center; min-height: 0; padding: 10px 6vw; gap: 30px; }
+.badge-zone { min-height: 0; }
+
+/* content pages: centred, no big top padding */
+.page.section {
+  max-width: none; margin: 0; width: auto;
+  padding: 24px max(6vw, calc((100% - 1200px) / 2));
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+.page.section > :first-child { margin-top: auto; }
+.page.section > :last-child { margin-bottom: auto; }
+.page.section > .grid-2, .page.section > .timeline, .page.section > .cards { width: 100%; }
+.page.section .title { margin-bottom: 22px; }
+
+/* timeline: two columns on wide screens so it fits one page */
+@media (min-width: 900px) {
+  .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-left: 0; }
+  .timeline::before, .t-item::before { display: none; }
+  .t-item { margin: 0; }
+}
+
+/* entrance animation each time a page opens */
+.reveal { opacity: 1; transform: none; transition: none; }
+.card.reveal { transition: transform .2s, box-shadow .2s; }
+.page.active .reveal { animation: rise .55s ease backwards; }
+.page.active .reveal:nth-child(2) { animation-delay: .08s; }
+.page.active .reveal:nth-child(3) { animation-delay: .16s; }
+.page.active .reveal:nth-child(4) { animation-delay: .24s; }
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+/* bottom pager */
+.pager {
+  position: fixed; left: 0; right: 0; bottom: 0; height: var(--pager-h); z-index: 45;
+  background: var(--band); color: #fff; border-top: 5px solid var(--pink);
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 0 92px 0 6vw;
+}
+.pager .copy { font-size: .85rem; opacity: .85; }
+.pager-ctrl { display: flex; align-items: center; gap: 16px; }
+.pager-btn {
+  background: var(--pink); color: #fff; font-weight: 700; font-size: .95rem; white-space: nowrap;
+  border: 3px solid #fff; border-radius: 999px; padding: 8px 22px; box-shadow: 3px 3px 0 #fff;
+  transition: transform .15s, box-shadow .15s, opacity .2s;
+}
+.pager-btn:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #fff; }
+.pager-btn:disabled { opacity: .35; pointer-events: none; }
+.dots { display: flex; align-items: center; gap: 8px; }
+.dot {
+  width: 12px; height: 12px; padding: 0; border-radius: 999px; border: 2px solid #fff; background: transparent;
+  transition: width .25s, background .25s;
+}
+.dot.on { width: 30px; background: var(--pink); }
+
+.theme-btn { bottom: calc((var(--pager-h) - 50px) / 2); right: 22px; }
+
+/* shrink the badge on short screens so the home page fits without scrolling */
+@media (max-height: 800px) { .badge-zone { zoom: .88; } }
+@media (max-height: 700px) { .badge-zone { zoom: .75; } }
+
+@media (max-width: 900px) {
+  .hero.page { gap: 4px; padding: 6px 5vw; }
+  .hero .intro { margin: 8px auto 12px; font-size: .9rem; }
+  .badge-zone { zoom: .58; }
+  .name { margin: 2px 0 6px; }
+}
+@media (max-width: 760px) {
+  :root { --marq-h: 0px; --pager-h: 68px; }
+  .marquee { display: none; }
+  .pager { padding: 0 76px 0 4vw; }
+  .pager .copy { display: none; }
+  .pager-ctrl { width: 100%; justify-content: space-between; gap: 8px; }
+  .pager-btn { padding: 7px 14px; font-size: .85rem; }
+  .pager-btn .nm { display: none; }
+  .theme-btn { width: 46px; height: 46px; right: 14px; bottom: calc((var(--pager-h) - 46px) / 2); }
+}
+
+/* ===== Layout tweak: centred pager buttons, theme button on the right edge ===== */
+.pager { justify-content: center; padding: 0 16px; }
+.pager .copy { position: absolute; left: 6vw; top: 50%; transform: translateY(-50%); }
+.pager-ctrl { width: auto; justify-content: center; }
+
+.theme-btn {
+  top: 50%; bottom: auto; right: 10px; margin-top: -25px; z-index: 60;
+}
+@media (max-width: 760px) {
+  .pager-ctrl { gap: 10px; }
+  .theme-btn { width: 40px; height: 40px; font-size: 1.1rem; right: 6px; margin-top: -20px; bottom: auto; }
+}
+@media (max-width: 1100px) { .pager .copy { display: none; } }

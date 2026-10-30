@@ -35,15 +35,22 @@
     </nav>
   </header>
 
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO •</span>
+      <span>OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO •</span>
+    </div>
+  </div>
+
   <main>
     <!-- HOME -->
-    <section class="hero" id="home">
+    <section class="hero page active" id="home">
       <div class="hero-text">
         <p class="hello">Hello, I'm</p>
-        <h2 class="name">Oriel Dwane <span>Bansil</span></h2>
+        <h2 class="name">Oriel Dwane F. <span>Bansil</span></h2>
         <p class="role">I'm a <span id="typed" class="typed"></span><span class="cursor">|</span></p>
         <p class="intro">
-          Welcome to my portfolio get to know me more!
+          Hello I am Oriel Dwane Bansil welcome to my portfolio get to know me more with this website portfolio.
         </p>
         <div class="socials">
           <a href="https://www.facebook.com/oriel.dwane.bansil.2025" target="_blank" rel="noopener noreferrer" class="btn">Facebook</a>
@@ -85,9 +92,9 @@
                 <div class="back-content">
                   <span class="badge-tag">OB</span>
                   <h3>Oriel Dwane Bansil</h3>
-                  <p class="back-role">Student &amp; Aspiring Developer</p>
+                  <p class="back-role">Student &amp; Aspiring Web Developer</p>
                   <div class="badge-chips">
-                    <em>curious</em><em>creative</em><em>dedicated</em>
+                    <em>adventurous</em><em>creative</em><em>"YOLO"</em>
                   </div>
                   <small>tap to flip back &#10022;</small>
                 </div>
@@ -100,15 +107,9 @@
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO •</span>
-        <span>OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO • OB • PORTFOLIO •</span>
-      </div>
-    </div>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
+    <section class="section page" id="about">
       <p class="eyebrow">01 / About</p>
       <h2 class="title">A little about me</h2>
 
@@ -146,7 +147,7 @@
     </section>
 
     <!-- EDUCATION -->
-    <section class="section" id="education">
+    <section class="section page" id="education">
       <p class="eyebrow">02 / Education</p>
       <h2 class="title">Educational attainment</h2>
 
@@ -175,7 +176,7 @@
     </section>
 
     <!-- CERTIFICATES -->
-    <section class="section" id="certificates">
+    <section class="section page" id="certificates">
       <p class="eyebrow">03 / Certificates</p>
       <h2 class="title">Certificates &amp; recognitions</h2>
 
@@ -210,7 +211,7 @@
     </section>
 
     <!-- FAMILY -->
-    <section class="section" id="family">
+    <section class="section page" id="family">
       <p class="eyebrow">04 / Family</p>
       <h2 class="title">The people behind me</h2>
 
@@ -243,12 +244,14 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© 2026 Oriel Dwane Bansil</p>
-    <a href="#about" id="nextLink">Next: About Me →</a>
+  <footer class="pager">
+    <span class="copy">© 2026 Oriel Dwane Bansil</span>
+    <div class="pager-ctrl">
+      <button class="pager-btn" id="prevBtn" aria-label="Previous page">← Back</button>
+      <div class="dots" id="dots" role="tablist" aria-label="Pages"></div>
+      <button class="pager-btn" id="nextBtn" aria-label="Next page">Next →</button>
+    </div>
   </footer>
-
-  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
   <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
 
   <script src="script.js"></script>

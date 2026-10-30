@@ -69,35 +69,70 @@ document.querySelectorAll("#filters button").forEach((btn) => {
   });
 });
 
-// ===== Scroll reveal =====
-const io = new IntersectionObserver(
-  (entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }),
-  { threshold: 0.15 }
-);
-document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-// ===== Active nav link, "Next" link, back-to-top =====
-const order = ["home", "about", "education", "certificates", "family"];
+// ===== Page-by-page navigation (no scrolling) =====
+const pages = Array.from(document.querySelectorAll(".page"));
+const ids = pages.map((p) => p.id);
 const labels = { home: "Home", about: "About Me", education: "Educational Attainment", certificates: "Certificates", family: "Family" };
-const nextLink = document.getElementById("nextLink");
-const toTop = document.getElementById("toTop");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const dotsEl = document.getElementById("dots");
+let cur = 0;
 
-function onScroll() {
-  let current = "home";
-  order.forEach((id) => {
-    const el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top < window.innerHeight * 0.4) current = id;
+const dots = ids.map((id, i) => {
+  const d = document.createElement("button");
+  d.className = "dot";
+  d.setAttribute("aria-label", labels[id]);
+  d.title = labels[id];
+  d.addEventListener("click", () => go(i));
+  dotsEl.appendChild(d);
+  return d;
+});
+
+function go(i) {
+  cur = Math.max(0, Math.min(pages.length - 1, i));
+  pages.forEach((p, idx) => {
+    p.classList.toggle("active", idx === cur);
+    p.classList.toggle("before", idx < cur);
   });
-  navLinks.querySelectorAll("a").forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
-  const i = order.indexOf(current);
-  const next = order[(i + 1) % order.length];
-  nextLink.textContent = `Next: ${labels[next]} →`;
-  nextLink.setAttribute("href", "#" + next);
-  toTop.classList.toggle("show", window.scrollY > 500);
+  pages[cur].scrollTop = 0;
+  dots.forEach((d, idx) => d.classList.toggle("on", idx === cur));
+  navLinks.querySelectorAll("a").forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + ids[cur]));
+  prevBtn.disabled = cur === 0;
+  if (cur === pages.length - 1) {
+    nextBtn.innerHTML = "Back to Home &#8635;";
+  } else {
+    nextBtn.innerHTML = 'Next<span class="nm">: ' + labels[ids[cur + 1]] + "</span> &rarr;";
+  }
+  navLinks.classList.remove("open");
+  try { history.replaceState(null, "", "#" + ids[cur]); } catch (e) {}
 }
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
-toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+prevBtn.addEventListener("click", () => go(cur - 1));
+nextBtn.addEventListener("click", () => go(cur === pages.length - 1 ? 0 : cur + 1));
+
+// nav links + logo switch pages instead of scrolling
+document.querySelectorAll('.nav a[href^="#"]').forEach((a) => {
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    const i = ids.indexOf(a.getAttribute("href").slice(1));
+    if (i >= 0) go(i);
+  });
+});
+
+// keyboard: left / right arrows
+document.addEventListener("keydown", (e) => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.key === "ArrowRight") go(Math.min(cur + 1, pages.length - 1));
+  if (e.key === "ArrowLeft") go(cur - 1);
+});
+
+// open the page named in the link (e.g. ...#about), otherwise Home
+window.addEventListener("hashchange", () => {
+  const i = ids.indexOf(location.hash.slice(1));
+  if (i >= 0 && i !== cur) go(i);
+});
+const start = ids.indexOf(location.hash.slice(1));
+go(start >= 0 ? start : 0);
 
 // ===== Dark mode (Spider-Man red + black) =====
 const themeBtn = document.getElementById("themeBtn");
