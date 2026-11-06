@@ -45,10 +45,10 @@ document.querySelectorAll("#skills button").forEach((btn) => {
 
 // ===== Quick facts (edit these!) =====
 const facts = [
-  "Add your first fun fact here.",
-  "Add your second fun fact here.",
-  "Add your third fun fact here.",
-  "Add your fourth fun fact here.",
+  "I love fashion 👗",
+  "I was a basketball varsity player in my junior years 🏀",
+  "I have my own business 💼",
+  "I was a pro Valorant player in 2021 🎮"
 ];
 let fi = -1;
 document.getElementById("fact").addEventListener("click", () => {
