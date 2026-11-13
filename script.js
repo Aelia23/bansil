@@ -33,46 +33,10 @@ badge.addEventListener("keydown", (e) => {
   if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flipBadge(); }
 });
 
-// ===== Skills notes =====
-const skillNote = document.getElementById("skillNote");
-document.querySelectorAll("#skills button").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("#skills button").forEach((b) => b.classList.remove("on"));
-    btn.classList.add("on");
-    skillNote.textContent = btn.dataset.note;
-  });
-});
-
-// ===== Quick facts (edit these!) =====
-const facts = [
-  "I love fashion 👗",
-  "I was a basketball varsity player in my junior years 🏀",
-  "I have my own business 💼",
-  "I was a pro Valorant player in 2021 🎮"
-];
-let fi = -1;
-document.getElementById("fact").addEventListener("click", () => {
-  fi = (fi + 1) % facts.length;
-  document.getElementById("factText").textContent = facts[fi];
-  document.getElementById("factCount").textContent = `${fi + 1} / ${facts.length}`;
-});
-
-// ===== Certificate filter =====
-document.querySelectorAll("#filters button").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("#filters button").forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    const f = btn.dataset.filter;
-    document.querySelectorAll("#cards .card").forEach((card) => {
-      card.classList.toggle("hide", f !== "all" && card.dataset.cat !== f);
-    });
-  });
-});
-
 // ===== Page-by-page navigation (no scrolling) =====
 const pages = Array.from(document.querySelectorAll(".page"));
 const ids = pages.map((p) => p.id);
-const labels = { home: "Home", about: "About Me", education: "Educational Attainment", certificates: "Certificates", family: "Family" };
+const labels = { home: "Home", about: "Personal Information", achievements: "Achievements", family: "Family" };
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const dotsEl = document.getElementById("dots");
@@ -122,6 +86,7 @@ document.querySelectorAll('.nav a[href^="#"]').forEach((a) => {
 // keyboard: left / right arrows
 document.addEventListener("keydown", (e) => {
   if (e.altKey || e.ctrlKey || e.metaKey) return;
+  if (document.querySelector(".lightbox.open")) return;
   if (e.key === "ArrowRight") go(Math.min(cur + 1, pages.length - 1));
   if (e.key === "ArrowLeft") go(cur - 1);
 });
@@ -149,3 +114,28 @@ themeBtn.addEventListener("click", () => {
   applyTheme(next);
   try { localStorage.setItem("theme", next); } catch (e) {}
 });
+
+// ===== Achievement photos: blurred backdrop + click to view full size =====
+const lb = document.createElement("div");
+lb.className = "lightbox";
+lb.innerHTML = '<button class="lb-close" aria-label="Close">&times;</button><img alt="" /><div class="lb-cap"><h4></h4><p></p></div>';
+document.body.appendChild(lb);
+const lbImg = lb.querySelector("img");
+function closeLightbox() { lb.classList.remove("open"); }
+
+document.querySelectorAll(".ach").forEach((card) => {
+  const thumb = card.querySelector(".ach-thumb");
+  const img = thumb.querySelector("img");
+  if (img) thumb.style.setProperty("--img", 'url("' + img.getAttribute("src") + '")');
+  thumb.addEventListener("click", () => {
+    const im = thumb.querySelector("img");
+    if (!im) return;
+    lbImg.src = im.src;
+    lbImg.alt = im.alt;
+    lb.querySelector("h4").textContent = card.querySelector("h4").textContent;
+    lb.querySelector("p").textContent = card.querySelector("p").textContent;
+    lb.classList.add("open");
+  });
+});
+lb.addEventListener("click", closeLightbox);
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
