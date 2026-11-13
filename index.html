@@ -28,9 +28,8 @@
     <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
     <nav id="navLinks">
       <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#education">Educational Attainment</a>
-      <a href="#certificates">Certificates</a>
+      <a href="#about">Personal Information</a>
+      <a href="#achievements">Achievements</a>
       <a href="#family">Family</a>
     </nav>
   </header>
@@ -53,10 +52,10 @@
           Hello I am Oriel Dwane Bansil welcome to my portfolio get to know me more with this website portfolio.
         </p>
         <div class="socials">
-  <a href="https://www.facebook.com/oriel.dwane.bansil.2025" target="_blank" rel="noopener noreferrer" class="btn">Facebook</a>
-  <a href="https://www.instagram.com/oriel_dwane/?hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Instagram</a>
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=orielbansil@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Email</a>
-</div>
+          <a href="https://www.facebook.com/oriel.dwane.bansil.2025" target="_blank" rel="noopener noreferrer" class="btn">Facebook</a>
+          <a href="https://www.instagram.com/oriel_dwane/?hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Instagram</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=orielbansil@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Email</a>
+        </div>
       </div>
 
       <!-- Flippable ID badge -->
@@ -70,7 +69,6 @@
 
               <!-- FRONT: photo -->
               <div class="b-face b-front">
-                <!-- Your photo:oriel.jpg -->
                 <img src="oriel.jpg" alt="Portrait of Oriel Dwane Bansil" draggable="false" />
                 <span class="badge-tag">OB</span>
                 <span class="flip-hint">tap to flip &#10022;</span>
@@ -109,110 +107,160 @@
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- PERSONAL INFORMATION -->
     <section class="section page" id="about">
-      <p class="eyebrow">01 / About</p>
-      <h2 class="title">A little about me</h2>
+      <div class="about-wrap">
 
-      <div class="grid-2">
-        <div class="panel reveal">
-          <h3>Who I am</h3>
-          <p>
-            Hi, I’m Oriel Dwane F. Bansil, born and raised in Baguio City, the City of Pines. Growing up in the mountains gave me a love for fresh air, cool weather, and exploring new places.
-I’m a basketball player who loves the competition and teamwork of the game. Off the court, I go freediving, which has taught me patience, calm, and control, both underwater and in everyday life. I also love travelling, discovering new places and cultures and collecting stories along the way. When I want to unwind, I play games, which feed my love of problem-solving and strategy.
-
-          </p>
-          <p>
-            I’m also working toward becoming a web developer. I’m learning to build things that people can use and enjoy, one project at a time. :)
+        <!-- left: title -->
+        <div class="about-side reveal">
+          <p class="eyebrow mono">&lt;about /&gt;</p>
+          <h2 class="title">Personal <span>Information</span></h2>
+          <p class="side-sub">A little more about who I am, what I enjoy, and what I bring to the table.</p>
         </div>
 
-        <div class="panel reveal">
-          <h3>What I work with</h3>
-          <div class="skills" id="skills">
-            <button data-note="Where my love for object-oriented programming began.">Java</button>
-            <button data-note="The skeleton of every page I build.">HTML</button>
-            <button data-note="Where I get to make everything look good (and pink).">CSS</button>
-            <button data-note="Makes my pages move, click and react.">JavaScript</button>
-            <button data-note="My daily workspace for writing code.">VS Code</button>
+        <!-- right: content -->
+        <div class="about-main">
+          <div class="about-intro reveal">
+            <h3 class="sec"><span class="slash">//</span> Here’s What You Should Know</h3>
+            <p>
+              Hi, I’m <strong class="hl">Oriel Dwane F. Bansil</strong>, a Bachelor of Science in Computer Science student at the University of the Cordilleras. I’m passionate about exploring how software works behind the scenes and transforming creative ideas into functional applications that people can interact with and use in their everyday lives.
+            </p>
+            <p>
+              My goal is to develop projects that combine creativity, functionality, and meaningful user experiences. As an aspiring Web Developer, I strive to build practical and innovative programs that solve real-world problems while continuously improving my skills in programming and software development.
+            </p>
           </div>
-          <p class="skill-note" id="skillNote">Tap a skill to see a note about it.</p>
 
-          <h3 class="mt">Quick facts <small>(click to flip through)</small></h3>
-          <button class="fact" id="fact">
-            <span id="factText">Click me for a random fact.</span>
-            <i id="factCount">1 / 4</i>
-          </button>
+          <div class="profile reveal">
+            <h3 class="sec"><span class="slash">//</span> My Profile</h3>
+            <div class="profile-grid">
+              <div class="pf"><span class="pf-label">Full Name</span><span class="pf-val">Oriel Dwane F. Bansil</span></div>
+              <div class="pf"><span class="pf-label">Course</span><span class="pf-val">Bachelor of Science in Information Technology</span></div>
+              <div class="pf"><span class="pf-label">School</span><span class="pf-val">University of the Cordilleras</span></div>
+              <div class="pf"><span class="pf-label">Birthday</span><span class="pf-val">September 23, 2006</span></div>
+            </div>
+          </div>
+
+          <div class="lists reveal">
+            <div class="list-col">
+              <h3 class="sec"><span class="slash">//</span> Interests</h3>
+              <ul class="pills">
+                <li>Web development</li>
+                <li>Programming and problem solving</li>
+                <li>Artificial intelligence</li>
+                <li>Technology and gadgets</li>
+              </ul>
+            </div>
+            <div class="list-col">
+              <h3 class="sec"><span class="slash">//</span> Hobbies</h3>
+              <ul class="pills">
+                <li>Playing video games</li>
+                <li>Listening to music</li>
+                <li>Watching movies and series</li>
+                <li>Exploring new apps and tools</li>
+                <li>Freediving</li>
+              </ul>
+            </div>
+            <div class="list-col">
+              <h3 class="sec"><span class="slash">//</span> Strengths</h3>
+              <ul class="pills">
+                <li>Quick learner</li>
+                <li>Analytical thinker</li>
+                <li>Detail-oriented</li>
+                <li>Team player</li>
+              </ul>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section class="section page" id="education">
-      <p class="eyebrow">02 / Education</p>
-      <h2 class="title">Educational attainment</h2>
+    <!-- ACHIEVEMENTS -->
+    <section class="section page" id="achievements">
+      <p class="eyebrow">02 / Achievements</p>
+      <h2 class="title">Achievements</h2>
 
-      <div class="timeline">
-        <article class="t-item reveal">
-          <span class="t-year">20XX – Present</span>
-          <h3>College / University</h3>
-          <p>Your school name · Your course</p>
-        </article>
-        <article class="t-item reveal">
-          <span class="t-year">20XX – 20XX</span>
-          <h3>Senior High School</h3>
-          <p>Your school name · Your strand</p>
-        </article>
-        <article class="t-item reveal">
-          <span class="t-year">20XX – 20XX</span>
-          <h3>Junior High School</h3>
-          <p>Your school name</p>
-        </article>
-        <article class="t-item reveal">
-          <span class="t-year">20XX – 20XX</span>
-          <h3>Elementary</h3>
-          <p>Your school name</p>
-        </article>
-      </div>
-    </section>
+      <!--
+        PHOTO FILE NAMES: save your photos inside a folder named "achievements"
+        (next to index.html) using exactly these names:
+          elementary-1.jpg, elementary-2.jpg, elementary-3.jpg
+          junior-high-1.jpg
+          senior-high-1.jpg, senior-high-2.jpg
+          college-1.jpg
+        Then replace each "Achievement Title" and description below.
+      -->
+      <div class="ach-list">
 
-    <!-- CERTIFICATES -->
-    <section class="section page" id="certificates">
-      <p class="eyebrow">03 / Certificates</p>
-      <h2 class="title">Certificates &amp; recognitions</h2>
+        <div class="ach-row reveal">
+          <div class="ach-school">
+            <span class="ach-level">Elementary</span>
+            <h3>Baguio Pines Family Learning Center</h3>
+          </div>
+          <div class="ach-items">
+            <article class="ach">
+              <div class="ach-thumb"><span>★</span><img src="elementary-1.jpg" alt="Elementary achievement 1" onerror="this.remove()" /></div>
+              <div class="ach-text"><h4>Class Valedictorian</h4><p>I was the class valedictorian 2019-2020.</p></div>
+            </article>
+            <article class="ach">
+              <div class="ach-thumb"><span>★</span><img src="elementary-2.jpg" alt="Elementary achievement 2" onerror="this.remove()" /></div>
+              <div class="ach-text"><h4>Honor Medals</h4><p>I was first Honor from grade 1 to 6.</p></div>
+            </article>
+            <article class="ach">
+              <div class="ach-thumb"><span>★</span><img src="elementary-3.jpg" alt="Elementary achievement 3" onerror="this.remove()" /></div>
+              <div class="ach-text"><h4>YMCA Dance Competition</h4><p>Participated in the YMCA Dance Competition and won 1st place whole Baguio and 3rd place Regionals .</p></div>
+            </article>
+          </div>
+        </div>
 
-      <div class="filters" id="filters">
-        <button class="active" data-filter="all">All</button>
-        <button data-filter="tech">Tech</button>
-        <button data-filter="academic">Academic</button>
-      </div>
+        <div class="ach-row reveal">
+          <div class="ach-school">
+            <span class="ach-level">Junior High School</span>
+            <h3>Baguio City Science National Highschool</h3>
+          </div>
+          <div class="ach-items">
+            <article class="ach">
+              <div class="ach-thumb"><span>★</span><img src="junior-high-1.jpg" alt="Junior high achievement 1" onerror="this.remove()" /></div>
+              <div class="ach-text"><h4>Basketball Varsity</h4><p>I was a Basketball Varsity player for 2 years.</p></div>
+            </article>
+          </div>
+        </div>
 
-      <div class="cards" id="cards">
-        <article class="card reveal" data-cat="tech">
-          <span class="star">★</span>
-          <h3>Certificate Title 1</h3>
-          <p>Issuer · 20XX</p>
-        </article>
-        <article class="card reveal" data-cat="tech">
-          <span class="star">★</span>
-          <h3>Certificate Title 2</h3>
-          <p>Issuer · 20XX</p>
-        </article>
-        <article class="card reveal" data-cat="academic">
-          <span class="star">★</span>
-          <h3>Academic Award</h3>
-          <p>School · 20XX</p>
-        </article>
-        <article class="card reveal" data-cat="academic">
-          <span class="star">★</span>
-          <h3>Seminar Participation</h3>
-          <p>Organizer · 20XX</p>
-        </article>
+        <div class="ach-row reveal">
+          <div class="ach-school">
+            <span class="ach-level">Senior High School</span>
+            <h3>University of the Cordilleras</h3>
+          </div>
+          <div class="ach-items">
+            <article class="ach">
+              <div class="ach-thumb"><span>★</span><img src="senior-high-1.jpg" alt="Senior high achievement 1" onerror="this.remove()" /></div>
+              <div class="ach-text"><h4>ComProg NC III</h4><p> I completed my 240 hrs Computer Programming NC III in UC.</p></div>
+            </article>
+            <article class="ach">
+              <div class="ach-thumb"><span>★</span><img src="senior-high-2.jpg" alt="Senior high achievement 2" onerror="this.remove()" /></div>
+              <div class="ach-text"><h4>TVL Skills Mania</h4><p>My team and I got 2nd PLace in the Game Development Competition.</p></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="ach-row reveal">
+          <div class="ach-school">
+            <span class="ach-level">College</span>
+            <h3>University of the Cordilleras</h3>
+          </div>
+          <div class="ach-items">
+            <article class="ach">
+              <div class="ach-thumb"><span>★</span><img src="college-1.jpg" alt="College achievement 1" onerror="this.remove()" /></div>
+              <div class="ach-text"><h4>Basketball Intramurals</h4><p>I recently joined basketball women intrams at UC under CITCS Department.</p></div>
+            </article>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- FAMILY -->
     <section class="section page" id="family">
-      <p class="eyebrow">04 / Family</p>
+      <p class="eyebrow">03 / Family</p>
       <h2 class="title">The people behind me</h2>
 
       <div class="cards">
