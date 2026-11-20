@@ -593,3 +593,37 @@ main {
   .badge-zone { align-self: end; }
   .swing { height: 470px; }
 }
+
+/* ===== Family & Friends ===== */
+.family-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+/* make the Family & Friends page use the full width and bigger cards */
+.page.section#family { padding: 12px 2.5vw; }
+.page.section#family .title { font-size: clamp(2.2rem, 6vh, 3.2rem); }
+.family-grid { gap: clamp(16px, 2vw, 30px); }
+.fcard { padding: 0; overflow: hidden; text-align: center; box-shadow: 8px 8px 0 var(--pink); }
+.fphoto {
+  position: relative; aspect-ratio: 4 / 3; /* landscape, taller = bigger photo */
+  background: var(--pink-soft);
+  border-bottom: 3px solid var(--line);
+  display: grid; place-content: center;
+}
+.fphoto span { font-family: "Bangers", cursive; font-size: 3rem; color: var(--pink); }
+.fphoto img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.fbody { padding: clamp(12px, 2vh, 20px) 16px clamp(14px, 2.4vh, 24px); }
+.fbody h3 {
+  display: inline-block; margin: 0 0 8px; padding: 2px 20px;
+  font-family: "Bangers", cursive; font-weight: 400; letter-spacing: 2px; font-size: clamp(1.3rem, 3vh, 1.8rem);
+  background: var(--pink); color: #fff; border: 3px solid var(--line); border-radius: 999px;
+}
+.fbody strong { display: block; color: var(--ink); font-size: clamp(.95rem, 2.2vh, 1.2rem); line-height: 1.45; }
+
+@media (max-width: 1000px) { .family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px)  { .family-grid { grid-template-columns: 1fr; } }
