@@ -36,7 +36,7 @@ badge.addEventListener("keydown", (e) => {
 // ===== Page-by-page navigation (no scrolling) =====
 const pages = Array.from(document.querySelectorAll(".page"));
 const ids = pages.map((p) => p.id);
-const labels = { home: "Home", about: "Personal Information", achievements: "Achievements", family: "Family" };
+const labels = { home: "Home", about: "Personal Information", achievements: "Achievements", family: "Family & Friends" };
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const dotsEl = document.getElementById("dots");
