@@ -627,3 +627,21 @@ main {
 
 @media (max-width: 1000px) { .family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px)  { .family-grid { grid-template-columns: 1fr; } }
+
+/* ===== Profile: 3 columns for the extra info ===== */
+.profile-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 28px; }
+.pf { grid-template-columns: 78px 1fr; gap: 8px; }
+.pf:nth-last-child(-n+2) { border-bottom: 1px solid var(--pink-soft); }
+.pf:nth-last-child(-n+3) { border-bottom: 0; }
+.pf-val { overflow-wrap: anywhere; }
+
+@media (max-width: 900px) {
+  .profile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pf:nth-last-child(3) { border-bottom: 1px solid var(--pink-soft); }
+  .pf:nth-last-child(-n+2) { border-bottom: 0; }
+}
+@media (max-width: 760px) {
+  .profile-grid { grid-template-columns: 1fr; }
+  .pf:nth-last-child(-n+2) { border-bottom: 1px solid var(--pink-soft); }
+  .pf:last-child { border-bottom: 0; }
+}
