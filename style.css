@@ -645,3 +645,24 @@ main {
   .pf:nth-last-child(-n+2) { border-bottom: 1px solid var(--pink-soft); }
   .pf:last-child { border-bottom: 0; }
 }
+
+/* ===== Personal Information: fit on one screen, no scrolling (desktop / laptop) ===== */
+#about.page.section { padding-top: 8px; padding-bottom: 8px; }
+
+@media (min-width: 901px) {
+  #about.page.section { overflow: hidden; }
+}
+
+#about .about-main { gap: clamp(6px, 1.4vh, 14px); }
+#about .about-intro p { font-size: clamp(.7rem, 1.6vh, .86rem); line-height: 1.4; }
+#about .about-intro p + p { margin-top: 5px; }
+#about .sec { font-size: clamp(.8rem, 1.8vh, .98rem); margin-bottom: clamp(2px, .5vh, 5px); }
+
+/* wider label column so labels like "BLOOD TYPE" and "CITIZENSHIP" don't wrap or collide */
+#about .profile-grid .pf { grid-template-columns: 104px 1fr; padding: clamp(2px, .55vh, 6px) 0; }
+#about .pf-label { font-size: .66rem; letter-spacing: 1px; }
+#about .pf-val { font-size: clamp(.74rem, 1.6vh, .88rem); }
+
+/* compact pills so all lists fit */
+#about .pills { gap: clamp(2px, .5vh, 5px); }
+#about .pills li { padding: clamp(1px, .4vh, 4px) 12px; font-size: clamp(.68rem, 1.5vh, .8rem); }
